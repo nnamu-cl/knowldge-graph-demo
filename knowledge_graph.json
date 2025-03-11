@@ -1,0 +1,332 @@
+{
+  "nodes": [
+    {
+      "id": "N1",
+      "labels": [
+        "Person"
+      ],
+      "name": "Alice Smith",
+      "description": "Alice is the mother in the family.",
+      "properties": [
+        {
+          "key": "age",
+          "value": "35",
+          "data_type": "number",
+          "confidence": 0.9,
+          "source": "family records"
+        },
+        {
+          "key": "occupation",
+          "value": "Architect",
+          "data_type": "string",
+          "confidence": 0.8,
+          "source": "linkedin"
+        }
+      ],
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "manually created",
+        "confidence": 0.95,
+        "extraction_method": "manual",
+        "notes": "Primary caretaker of the family"
+      },
+      "external_ids": null,
+      "display_properties": null
+    },
+    {
+      "id": "N2",
+      "labels": [
+        "Person"
+      ],
+      "name": "Bob Smith",
+      "description": "Bob is the father in the family.",
+      "properties": [
+        {
+          "key": "age",
+          "value": "37",
+          "data_type": "number",
+          "confidence": 0.9,
+          "source": "family records"
+        },
+        {
+          "key": "occupation",
+          "value": "Engineer",
+          "data_type": "string",
+          "confidence": 0.8,
+          "source": "linkedin"
+        }
+      ],
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "manually created",
+        "confidence": 0.95,
+        "extraction_method": "manual",
+        "notes": "Family's main financial provider"
+      },
+      "external_ids": null,
+      "display_properties": null
+    },
+    {
+      "id": "N3",
+      "labels": [
+        "Person"
+      ],
+      "name": "Charlie Smith",
+      "description": "Charlie is the child in the family.",
+      "properties": [
+        {
+          "key": "age",
+          "value": "10",
+          "data_type": "number",
+          "confidence": 0.9,
+          "source": "school records"
+        },
+        {
+          "key": "grade",
+          "value": "5",
+          "data_type": "number",
+          "confidence": 0.9,
+          "source": "school records"
+        }
+      ],
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "manually created",
+        "confidence": 0.95,
+        "extraction_method": "manual",
+        "notes": "Currently interested in soccer"
+      },
+      "external_ids": null,
+      "display_properties": null
+    },
+    {
+      "id": "N4",
+      "labels": [
+        "Pet"
+      ],
+      "name": "Buddy",
+      "description": "Buddy is the family dog, a Golden Retriever.",
+      "properties": [
+        {
+          "key": "age",
+          "value": "3",
+          "data_type": "number",
+          "confidence": 0.8,
+          "source": "veterinary records"
+        }
+      ],
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "manually created",
+        "confidence": 0.9,
+        "extraction_method": "manual",
+        "notes": "Buddy enjoys playing fetch"
+      },
+      "external_ids": null,
+      "display_properties": null
+    },
+    {
+      "id": "N5",
+      "labels": [
+        "Residence"
+      ],
+      "name": "Smith Family Home",
+      "description": "The home where the Smith family resides.",
+      "properties": [
+        {
+          "key": "location",
+          "value": "123 Maple Street, Springfield",
+          "data_type": "string",
+          "confidence": 0.7,
+          "source": "public records"
+        },
+        {
+          "key": "type",
+          "value": "Single-family Home",
+          "data_type": "string",
+          "confidence": 0.85,
+          "source": "real estate database"
+        }
+      ],
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "manually created",
+        "confidence": 0.9,
+        "extraction_method": "manual",
+        "notes": "The family has lived here for 5 years"
+      },
+      "external_ids": null,
+      "display_properties": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "N1",
+      "target": "N2",
+      "type": "MARRIED_TO",
+      "bidirectional": true,
+      "weight": 0.95,
+      "start_date": "2005-06-15",
+      "end_date": null,
+      "duration": "18 years",
+      "properties": null,
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "family records",
+        "confidence": 0.95,
+        "extraction_method": "manual",
+        "notes": "Strong marriage bond"
+      },
+      "display_properties": null
+    },
+    {
+      "source": "N1",
+      "target": "N3",
+      "type": "PARENT_OF",
+      "bidirectional": false,
+      "weight": 0.95,
+      "start_date": "2013-04-21",
+      "end_date": null,
+      "duration": null,
+      "properties": null,
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "family records",
+        "confidence": 0.95,
+        "extraction_method": "manual",
+        "notes": "Mother-child relationship"
+      },
+      "display_properties": null
+    },
+    {
+      "source": "N2",
+      "target": "N3",
+      "type": "PARENT_OF",
+      "bidirectional": false,
+      "weight": 0.95,
+      "start_date": "2013-04-21",
+      "end_date": null,
+      "duration": null,
+      "properties": null,
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "family records",
+        "confidence": 0.95,
+        "extraction_method": "manual",
+        "notes": "Father-child relationship"
+      },
+      "display_properties": null
+    },
+    {
+      "source": "N1",
+      "target": "N5",
+      "type": "RESIDES_IN",
+      "bidirectional": false,
+      "weight": 0.9,
+      "start_date": "2018-08-01",
+      "end_date": null,
+      "duration": null,
+      "properties": null,
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "public records",
+        "confidence": 0.9,
+        "extraction_method": "manual",
+        "notes": "Alice's residence"
+      },
+      "display_properties": null
+    },
+    {
+      "source": "N2",
+      "target": "N5",
+      "type": "RESIDES_IN",
+      "bidirectional": false,
+      "weight": 0.9,
+      "start_date": "2018-08-01",
+      "end_date": null,
+      "duration": null,
+      "properties": null,
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "public records",
+        "confidence": 0.9,
+        "extraction_method": "manual",
+        "notes": "Bob's residence"
+      },
+      "display_properties": null
+    },
+    {
+      "source": "N3",
+      "target": "N5",
+      "type": "RESIDES_IN",
+      "bidirectional": false,
+      "weight": 0.9,
+      "start_date": "2018-08-01",
+      "end_date": null,
+      "duration": null,
+      "properties": null,
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "public records",
+        "confidence": 0.9,
+        "extraction_method": "manual",
+        "notes": "Charlie's residence"
+      },
+      "display_properties": null
+    },
+    {
+      "source": "N4",
+      "target": "N5",
+      "type": "LIVES_IN",
+      "bidirectional": false,
+      "weight": 0.85,
+      "start_date": "2020-01-05",
+      "end_date": null,
+      "duration": null,
+      "properties": null,
+      "attributes": null,
+      "metadata": {
+        "created_at": "2023-10-23T14:30:00Z",
+        "last_modified": "2023-10-23T14:30:00Z",
+        "source": "veterinary records",
+        "confidence": 0.85,
+        "extraction_method": "manual",
+        "notes": "Buddy's home since adoption"
+      },
+      "display_properties": null
+    }
+  ],
+  "metadata": {
+    "created_at": "2025-03-10",
+    "last_modified": null,
+    "source": "OpenAI GPT-4o",
+    "confidence": null,
+    "extraction_method": "LLM-generated",
+    "notes": null
+  },
+  "domain": "Artificial Intelligence",
+  "version": "1.0",
+  "stats": null
+}

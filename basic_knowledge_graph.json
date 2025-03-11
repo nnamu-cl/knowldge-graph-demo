@@ -1,0 +1,119 @@
+{
+  "nodes": [
+    {
+      "id": "N1",
+      "labels": [
+        "Person"
+      ],
+      "name": "John",
+      "description": "Father of the family",
+      "properties": [
+        {
+          "key": "age",
+          "value": "35",
+          "data_type": "number"
+        },
+        {
+          "key": "occupation",
+          "value": "Engineer",
+          "data_type": "string"
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "labels": [
+        "Person"
+      ],
+      "name": "Jane",
+      "description": "Mother of the family",
+      "properties": [
+        {
+          "key": "age",
+          "value": "34",
+          "data_type": "number"
+        },
+        {
+          "key": "occupation",
+          "value": "Teacher",
+          "data_type": "string"
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "labels": [
+        "Person"
+      ],
+      "name": "Jack",
+      "description": "Child in the family",
+      "properties": [
+        {
+          "key": "age",
+          "value": "5",
+          "data_type": "number"
+        },
+        {
+          "key": "school",
+          "value": "Preschool",
+          "data_type": "string"
+        }
+      ]
+    },
+    {
+      "id": "N4",
+      "labels": [
+        "Family"
+      ],
+      "name": "Smith Family",
+      "description": "A small family of three",
+      "properties": [
+        {
+          "key": "location",
+          "value": "New York",
+          "data_type": "string"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "source": "N1",
+      "target": "N2",
+      "type": "MARRIED_TO",
+      "bidirectional": true
+    },
+    {
+      "source": "N1",
+      "target": "N3",
+      "type": "PARENT_OF",
+      "bidirectional": false
+    },
+    {
+      "source": "N2",
+      "target": "N3",
+      "type": "PARENT_OF",
+      "bidirectional": false
+    },
+    {
+      "source": "N1",
+      "target": "N4",
+      "type": "MEMBER_OF",
+      "bidirectional": false
+    },
+    {
+      "source": "N2",
+      "target": "N4",
+      "type": "MEMBER_OF",
+      "bidirectional": false
+    },
+    {
+      "source": "N3",
+      "target": "N4",
+      "type": "MEMBER_OF",
+      "bidirectional": false
+    }
+  ],
+  "domain": "a simple family of 3",
+  "version": "1.0"
+}

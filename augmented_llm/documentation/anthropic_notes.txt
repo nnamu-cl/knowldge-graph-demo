@@ -1,0 +1,99 @@
+Anthropic Streaming Events Documentation
+====================================
+
+When streaming responses from Anthropic's Claude models, several types of events are received. Here's a detailed breakdown of each event type and its significance:
+
+1. message_start
+---------------
+- First event received when starting a new message stream
+- Contains metadata about the message that will be generated
+- Useful for initializing message containers and stream state
+- Example: Used to create a new message dictionary with role="assistant"
+
+2. content_block_start
+---------------------
+- Indicates the start of a new content block
+- Content blocks can be of different types:
+  * "text": Regular text content
+  * "tool_use": Tool usage block
+- For tool_use blocks, includes:
+  * id: Unique identifier for the tool call
+  * name: Name of the tool being called
+- Used to initialize appropriate content containers based on block type
+
+3. content_block_delta
+---------------------
+- Contains actual content updates
+- Two types of deltas:
+  a) Text deltas:
+     - Has 'text' attribute
+     - Contains actual text content to append
+     - Used for regular message content
+  b) JSON deltas:
+     - Has 'partial_json' attribute
+     - Used for tool call parameters
+     - Need to be accumulated until complete JSON is received
+- Most frequent event type during streaming
+
+4. content_block_stop
+--------------------
+- Signals the end of a content block
+- Important for tool calls to finalize JSON accumulation
+- Helps maintain proper message structure
+- Good time to process completed blocks (e.g., execute tools)
+
+5. message_delta
+---------------
+- Contains updates to message metadata
+- Most importantly includes 'stop_reason' when present
+- Stop reasons can be:
+  * "tool_use": Model wants to use a tool
+  * "end_turn": Model has completed its response
+  * Other reasons as defined by Anthropic
+- Critical for determining next actions in conversation
+
+6. message_stop
+--------------
+- Final event in the stream
+- Signals completion of the entire message
+- Good time to:
+  * Add message to conversation history
+  * Process any pending tool calls
+  * Prepare for next turn if needed
+  * Clean up any stream-related state
+
+Important Implementation Notes:
+-----------------------------
+1. Tool Calls:
+   - Tool parameters come as partial JSON in content_block_delta events
+   - Must accumulate JSON until complete
+   - Execute tools after message_stop if stop_reason is "tool_use"
+
+2. Content Management:
+   - Keep track of current block type
+   - Accumulate content appropriately based on block type
+   - Handle nested structures (e.g., tool calls within messages)
+
+3. Error Handling:
+   - Handle incomplete JSON gracefully
+   - Manage stream interruptions
+   - Deal with malformed events
+
+4. State Management:
+   - Track current message and block state
+   - Maintain conversation history
+   - Handle tool execution state
+
+Example Flow:
+------------
+1. message_start
+2. content_block_start (text)
+3. multiple content_block_delta (text)
+4. content_block_stop
+5. content_block_start (tool_use)
+6. multiple content_block_delta (partial_json)
+7. content_block_stop
+8. message_delta (with stop_reason)
+9. message_stop
+
+This event structure allows for real-time processing of Claude's responses while maintaining proper message structure and handling tool usage effectively. 
