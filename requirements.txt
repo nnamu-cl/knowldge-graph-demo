@@ -1,0 +1,33 @@
+# Knowledge Graph Demo Requirements
+# Core dependencies
+openai
+pydantic
+anthropic
+
+# LangChain components
+langchain-core
+langchain-community
+langchain-experimental
+langchain-openai
+langchain-text-splitters
+
+# Graph database
+neo4j
+
+# Jupyter support
+jupyter
+notebook
+
+# Type hints and utilities
+typing-extensions
+
+# Data handling
+pandas
+numpy
+
+# Date and time handling
+python-dateutil
+
+# Optional: visualization
+matplotlib
+networkx 
